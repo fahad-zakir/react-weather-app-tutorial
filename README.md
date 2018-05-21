@@ -1,3 +1,6 @@
+https://salty-scrubland-47684.herokuapp.com/
+Static Version since there is no backend server to grab api data
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
