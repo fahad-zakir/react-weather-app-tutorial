@@ -18,17 +18,23 @@ class App extends Component {
     error: undefined
   }
   getWeather = async (e) => {  
-    //e is an event object and will prevent the page reload that's stopping the data (default behavior); e.prevent signifies single page app
+    //e is an event object and will prevent the page reload that's stopping the data (default behavior); e.prevent signifies single page app what React is all about
     e.preventDefault();
     // we created this city & country var to target the form city and change it's value ; we removed the default city and state 
     // from the api and set the props there as well with the $ sign
+
+    // e.target is for the argument of the event handler in the form, events are objects with certain properties
+    // e.target almost always represents a DOM element.
+    // Thus e.target.value is the value property of some DOM element, in this case that means the text entered in the search input.
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
     const data = await api_call.json();
-    // we have stored the api_call in the data variable since we also want to convert it to an json
+    // we have stored the api_call in the data variable since we also want to convert it to a json
     console.log(data);
     this.setState({
+      // this is so we can change this manipulate data below (change the state), we got the intial state (data) from the api
+      // it came in the json called as it is below 
       temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
@@ -37,6 +43,7 @@ class App extends Component {
       error: ""
     })
   }
+  // The state is set above and therefore rendered below for the Form and weather component to recieve data from .props
   render() {
     return (
       <div>
