@@ -4,14 +4,14 @@ class Weather extends Component {
   render() {
     return (
     <div>
-        { this.props.city }
-        { this.props.country }
-        { this.props.temperature }
-        { this.props.humidity }
-        { this.props.description }
+        { this.props.city && this.props.country && <p>Location: {this.props.city}, {this.props.country}</p> }
+        { this.props.temperature && <p>Temperature: { this.props.temperature }</p> }
+        { this.props.humidity && <p>Humidity: { this.props.humidity }</p> }
+        { this.props.description && <p>Coditions: { this.props.description }</p> }
     </div>
     );
   }
 }
-
+// conditional operators from { this expression } what line 7 means is, if this.props.city returns true, 
+//and this.props.country returns true only then do we want what's next
 export default Weather;
