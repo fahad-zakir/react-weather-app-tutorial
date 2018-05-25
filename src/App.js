@@ -33,13 +33,11 @@ class App extends Component {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
     const data = await api_call.json();
     // we have stored the api_call in the data variable since we also want to convert it to a json
+
     // if statement is to check if city value's return true then do this, if it's false then code below will not work. (this is for the blank form and submit)
-    // if it works then we want the code to work else 
+    // if it works then we want the code to work and render these properties
     if (city && country) {
-    console.log(data);
-    this.setState({
-      // this is so we can change this manipulate data below (change the state), we got the intial state (data) from the api
-      // it came in the json called as it is below 
+      this.setState({
       temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
@@ -50,7 +48,8 @@ class App extends Component {
   
 } else {
       this.setState({
-        // this is so we can change this manipulate data below (change the state), we got the intial state (data) from the api
+        // do this if it's a blank form and you try to hit submit
+        // this is so we can change and manipulate data below (change the state), we got the intial state (data) from the api
         // it came in the json called as it is below 
         temperature: undefined,
         city: undefined,
