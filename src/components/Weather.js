@@ -7,12 +7,30 @@ const Weather = props => (
         //this div block is the only element, not all the props
         //if you are only returning one element in an arrow function, like in here we are doing it with this setup 
         //of const otherwise look below in comments for the mulitple elements method
-        <div>
-            {props.city && props.country && <p>Location: {props.city}, {props.country}</p>}
-            {props.temperature && <p>Temperature: {props.temperature}</p>}
-            {props.humidity && <p>Humidity: {props.humidity}</p>}
-            {props.description && <p>Coditions: {props.description}</p>}
-            {props.error && <p>{props.error}</p>}
+        <div className="weather__info">
+            {
+                props.city && props.country && <p className="weather__key">Location: 
+                <span>{props.city}, {props.country}</span>
+                </p>
+            }
+            {
+                props.temperature && <p className="weather__key">Temperature: 
+                <span>{props.temperature}</span>
+                </p>
+            }
+            {
+                props.humidity && <p className="weather__key">Humidity: 
+                <span>{props.humidity}</span>
+                </p>
+            }
+            {
+                props.description && <p className="weather__key">Coditions: 
+                <span>{props.description}</span>
+                </p>
+            }
+            {
+                props.error && <p>{props.error}</p>
+            }
         </div>
     );
 // conditional operators from { this expression } what line 7 means is, if this.props.city returns true, 
