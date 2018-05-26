@@ -4,35 +4,39 @@ import React, { Component } from "react";
 
 // if you are only returning one argument in an arrow function you can get rid of the surrounding parenthesis
 const Weather = props => (
-        //this div block is the only element, not all the props
-        //if you are only returning one element in an arrow function, like in here we are doing it with this setup 
-        //of const otherwise look below in comments for the mulitple elements method
-        <div className="weather__info">
-            {
-                props.city && props.country && <p className="weather__key">Location: 
-                <span>{props.city}, {props.country}</span>
-                </p>
-            }
-            {
-                props.temperature && <p className="weather__key">Temperature: 
-                <span>{props.temperature}</span>
-                </p>
-            }
-            {
-                props.humidity && <p className="weather__key">Humidity: 
-                <span>{props.humidity}</span>
-                </p>
-            }
-            {
-                props.description && <p className="weather__key">Coditions: 
-                <span>{props.description}</span>
-                </p>
-            }
-            {
-                props.error && <p>{props.error}</p>
-            }
-        </div>
-    );
+  //this div block is the only element, not all the props
+  //if you are only returning one element in an arrow function, like in here we are doing it with this setup
+  //of const otherwise look below in comments for the mulitple elements method
+  <div className="weather__info">
+    {props.city &&
+      props.country && (
+        <p className="weather__key">
+          Location:
+          <span className="weather__value"> {props.city}, {props.country}
+          </span>
+        </p>
+      )}
+    {props.temperature && (
+      <p className="weather__key">
+        Temperature:
+        <span className="weather__value"> {props.temperature}</span>
+      </p>
+    )}
+    {props.humidity && (
+      <p className="weather__key">
+        Humidity:
+        <span className="weather__value"> {props.humidity}</span>
+      </p>
+    )}
+    {props.description && (
+      <p className="weather__key">
+        Coditions:
+        <span className="weather__value"> {props.description}</span>
+      </p>
+    )}
+    {props.error && <p className="weather__error"> {props.error}</p>}
+  </div>
+);
 // conditional operators from { this expression } what line 7 means is, if this.props.city returns true, 
 // and this.props.country returns true only then do we want what's next
 // if statements 
