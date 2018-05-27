@@ -5,8 +5,9 @@ import Weather from "./components/Weather.js";
 
 const API_KEY = "94da788e62953643710eabd7b69152e4";
 
-// State changes the data to change based on interaction within a component, state is an object and it contains key value pairs
-// in the state we will place data we need from the API, it's called intial state of the object and it's only gonna change once we press the button of the boject
+// State changes the data based on interaction within a component, state is an object and it contains key value pairs
+// in the state we will place data we need from the API, it's called intial state of the object and it's only gonna change once we press the button 
+// These properties below after state = are we are interested in getting back and possibly reuse them all over the app
 
 // on the weather component if you try to click the weather button without filling in the form, you get errors
 // it is due to these properties below being undefined and then we are trying to fetch (this.) the data when we don't have any and it's not going to know what we are trying to get from the api.
@@ -20,22 +21,24 @@ class App extends Component {
     error: undefined
   };
   getWeather = async e => {
-    //e is an event object and will prevent the page reload that's stopping the data (default behavior); e.prevent signifies single page app what React is all about
+    // the problem we were experiencing prior to this code was the data was not rendering from the api due to the page reload.
+    // e is an event object and will prevent the page reload that's stopping the data (default behavior); e.prevent signifies single page app what React is all about
     e.preventDefault();
     // we created this city & country var to target the form city and change it's value ; we removed the default city and state
     // from the api and set the props there as well with the $ sign
 
-    // e.target is for the argument of the event handler in the form, events are objects with certain properties
+    // e.target is for the argument of the event handler in the form component, events are objects with certain properties
     // e.target almost always represents a DOM element.
     // Thus e.target.value is the value property of some DOM element, in this case that means the text entered in the search input.
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    const api_call = await fetch(
+    const api_call = await fetch(  //Notice the Api_KEY which is from above
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
     // we have stored the api_call in the data variable since we also want to convert it to a json
 
+    // we are making these if statements for a blank form, so when you click submit a blank form you don't get errors thrown
     // if statement is to check if city value's return true then do this, if it's false then code below will not work. (this is for the blank form and submit)
     // if it works then we want the code to work and render these properties
     if (city && country) {
