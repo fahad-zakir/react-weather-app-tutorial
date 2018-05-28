@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//porps have to be thrown in as an argument in order for props to work since it's not defined with it being in the argument
+//props have to be thrown in as an argument in order for props to work since it's not defined with it being in the argument
 //and notice how this. was removed in a stateless component
 
 // if you are only returning one argument in an arrow function you can get rid of the surrounding parenthesis

@@ -41,6 +41,7 @@ class App extends Component {
     // we are making these if statements for a blank form, so when you click submit a blank form you don't get errors thrown
     // if statement is to check if city value's return true then do this, if it's false then code below will not work. (this is for the blank form and submit)
     // if it works then we want the code to work and render these properties
+    // the way we got these properties name was through console.log when everyting at first was undefined.
     if (city && country) {
       this.setState({
         temperature: data.main.temp,
@@ -64,7 +65,7 @@ class App extends Component {
       });
     }
   };
-  // The state is set above and therefore rendered below for the Form and weather component to recieve data from .props
+  // The state is set above and therefore rendered below for the Form and weather component to recieve data via .props (api)
   render() {
     return (
       <div>
