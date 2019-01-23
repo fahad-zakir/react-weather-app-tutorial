@@ -7,7 +7,7 @@ const API_KEY = "94da788e62953643710eabd7b69152e4";
 
 // State changes the data based on interaction within a component, state is an object and it contains key value pairs
 // in the state we will place data we need from the API, it's called intial state of the object and it's only gonna change once we press the button 
-// These properties below after state = are we are interested in getting back and possibly reuse them all over the app
+// These properties below after state = we are interested in getting back and possibly reuse them all over the app
 
 // on the weather component if you try to click the weather button without filling in the form, you get errors
 // it is due to these properties below being undefined and then we are trying to fetch (this.) the data when we don't have any and it's not going to know what we are trying to get from the api.
