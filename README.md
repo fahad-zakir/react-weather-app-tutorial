@@ -1,6 +1,6 @@
 https://salty-scrubland-47684.herokuapp.com/
 
-This React.js tutorial teaches you how to setup an api key for populate the state of the component.  You will also learn how to use bootstrap for React. Detailed comments are used on the components and app.js files.
+This React.js tutorial teaches you how to setup an api key in order to populate the state of a component with data.  You will also learn how to use bootstrap for React. Detailed comments are used on the components and app.js files.
 
 This is the Static Version since there is no backend server to grab api data
 
